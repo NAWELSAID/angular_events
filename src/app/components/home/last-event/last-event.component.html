@@ -1,0 +1,54 @@
+<section>
+	<div class="container">
+
+		<!-- Title -->
+		<div class="row mb-4">
+			<div class="col-12 text-center">
+				<h2 class="mb-0">Last Event</h2>
+			</div>
+		</div>
+
+		<div class="row g-4">
+			<!-- Hotel item -->
+
+			<div *ngFor="let event  of events" class="col-sm-6 col-xl-3" >
+				<!-- Card START -->
+
+				<div  class="card card-img-scale overflow-hidden bg-transparent" >
+					<!-- Image and overlay -->
+					<div class="card-img-scale-wrapper rounded-3"   >
+						<!-- Image -->
+            <div class="position-absolute top-0 end-0 z-index-1 mt-n4">
+              <div class="bg-blur border border-light rounded-3 text-center shadow-lg p-3" style="background-color: rgba(240, 248, 255, 0.681);">
+                <!-- Title -->
+                <i class="bi bi-calendar text-danger fs-3"></i>
+<!-- 							<h6 class="text-success mb-0"><small class="fw-light" >{{event.date_start}}</small>
+                <small class="fw-light text-danger">{{event.date_end}}</small>  </h6> -->
+                <h6 class="text-dark mb-1 ">{{event.date_start}}</h6>
+                <h6 class="text-danger mb-1 ">{{event.date_end}}</h6>
+
+              </div>
+            </div>
+            <div class="position-absolute top-0 start-0 translate-middle z-index-9 mt-3 ms-5" >
+							<div class="badge text-bg-dark fs-6 rounded-pill stretched-link">{{event.categorie?.name_fr}}</div>
+            </div>
+						<img src="{{lien+event.photo}}" class="card-img" alt="hotel image" >
+						<!-- Badge -->
+						<div class="position-absolute bottom-0 start-0 p-3" >
+							<div class="badge text-bg-dark fs-6 rounded-pill stretched-link"><i class="bi bi-geo-alt me-2"></i>{{event.localisation_fr}}</div>
+						</div>
+					</div>
+
+					<!-- Card body -->
+					<div  class="card-body px-2"  >
+						<!-- Title -->
+						<h5 class="card-title" ><a href="hotel-detail.html" class="stretched-link">{{event.title_fr}}</a></h5>
+            <span>{{event.description_fr}}</span>
+            <!-- Price and rating -->
+					</div>
+				</div>
+				<!-- Card END -->
+			</div>
+		</div> <!-- Row END -->
+	</div>
+</section>

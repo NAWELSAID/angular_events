@@ -1,0 +1,112 @@
+<section class="vh-xxl-100">
+	<div class="container h-100 d-flex px-0 px-sm-4">
+		<div class="row justify-content-center align-items-center m-auto">
+			<div class="col-12">
+				<div class="bg-mode shadow rounded-3 overflow-hidden">
+					<div class="row g-0">
+						<!-- Vector Image -->
+						<div class="col-lg-6 d-md-flex align-items-center order-2 order-lg-1">
+							<div class="p-3 p-lg-5">
+								<img src="assets/images/element/signin.svg" alt="">
+							</div>
+							<!-- Divider -->
+							<div class="vr opacity-1 d-none d-lg-block"></div>
+						</div>
+
+						<!-- Information -->
+						<div class="col-lg-6 order-1">
+							<div class="p-4 p-sm-6">
+								<!-- Logo -->
+                <div style="height: 100px;width: 100px;">
+								<a href="index.html" >
+
+                  <img class="light-mode-item navbar-brand-item"  src="{{lien+coordinate?.logo_dark}}" alt="logo">
+                  <img class="dark-mode-item navbar-brand-item" src="{{lien+coordinate?.logo_light}}" alt="logo">								</a>
+                </div>
+                  <!-- Title -->
+								<h1 class="mb-2 h3">Create new account</h1>
+								<p class="mb-0">Already a member?<a routerLink="/sign-in"> Log in</a></p>
+
+								<!-- Form START -->
+								<form [formGroup]="signup" id="contact-form"  method="post" action="contact.php" data-toggle="validator"  >
+									<!-- Email -->
+                  <div class="mb-3">
+                    <label class="form-label">Your name</label>
+                    <input type="text" class="form-control" formControlName="name" id="form_name" type="text" name="name"
+                    required minlength="4">
+                    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                    class="text-danger ">
+                    your name Please.
+
+                  <div *ngIf="name?.errors?.['required']" class="text-danger " >
+                   Name is required.
+                  </div>
+                   </div>
+                  </div>
+									<div class="mb-3">
+										<label class="form-label">Enter email id</label>
+										<input formControlName="email" id="form_email" type="email" name="email"
+                       data-error="Valid email is required." class="form-control">
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+                    class="text-danger ">
+                    sou forme "example@gmail.com"
+                  <div *ngIf="email?.errors?.['required']">
+                    email is required.
+                  </div>
+                </div>
+									</div>
+									<!-- Password -->
+									<div class="mb-3 position-relative">
+										<label class="form-label">Enter password</label>
+										<input class="form-control" formControlName="password" id="form_password"
+                    type="password" name="password"
+                    required  minlength="5"  pattern >
+                     <div *ngIf="password?.invalid"  class="text-danger ">
+                    password is required.
+                    <div *ngIf="password?.errors?.['minlength']" >
+                    Must be more than 5 characters.
+                    </div>
+                      <div *ngIf="password?.errors?.['pattern']" >
+                    Please use majuscul,minuscul letters and chiffer.
+                    </div>
+                  </div>
+										<span class="position-absolute top-50 end-0 translate-middle-y p-0 mt-3">
+											<i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
+										</span>
+									</div>
+									<!-- Confirm Password -->
+									<div class="mb-3">
+										<label class="form-label">Confirm Password</label>
+										<input id="confirmPassword"  formControlName="confirmPassword" type="password" class="form-control"
+                     required  minlength="5"  pattern>
+                      <div  *ngIf="confirmPassword?.value != password?.value"  class="text-danger ">
+                    password is required 2. {{confirmPassword?.value}} {{ password?.value}}
+                   </div>
+                </div>
+									<!-- Button -->
+									<div><button type="submit" (click)="onSubmit()" class="btn btn-primary w-100 mb-0">Sign up</button></div>
+
+									<!-- Divider -->
+									<div class="position-relative my-4">
+										<hr>
+										<p class="small position-absolute top-50 start-50 translate-middle bg-mode px-1 px-sm-2">Or sign in with</p>
+									</div>
+
+									<!-- Google and facebook button -->
+									<div class="vstack gap-3">
+										<a href="#" class="btn btn-light mb-0"><i class="fab fa-fw fa-google text-google-icon me-2"></i>Sign in with Google</a>
+										<a href="#" class="btn btn-light mb-0"><i class="fab fa-fw fa-facebook-f text-facebook me-2"></i>Sign in with Facebook</a>
+									</div>
+
+									<!-- Copyright -->
+									<div c class="text-muted text-primary-hover"> made with love <i class="bi bi-heart text-danger me-2"></i> nawel said - <a href="https://www.nachdit.com/" class="text-muted">NACHD_IT</a>. </div>
+								</form>
+								<!-- Form END -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
